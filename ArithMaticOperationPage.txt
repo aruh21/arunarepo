@@ -1,0 +1,28 @@
+<apex:page Controller="ArithMaticOperation" >
+    <apex:form >
+        <apex:pageBlock title="Calculate">
+            <apex:pageBlockSection columns="1">
+                <script>
+                    function decimalOnly(e){
+                        e.value = e.value.replace(/[^0-9\.]/g,'');
+                        if(e.value.split('.').length>2) e.value = e.value.replace(/\.+$/,"");
+                    };          
+                    </script>
+                <apex:inputText Label="First Value" value="{!num1}" onkeyup="decimalOnly(this)"></apex:inputText>
+                <apex:inputText Label="Second Value" value="{!num2}" onkeyup="decimalOnly(this)"></apex:inputText>
+                
+                <apex:selectRadio value="{!choice}" label="Select Operator">
+                    <apex:selectOption itemLabel="Summation" itemValue="sum"></apex:selectOption>
+                    <apex:selectOption itemLabel="Subtration" itemValue="sub"></apex:selectOption>
+                    <apex:selectOption itemLabel="Multiplication" itemValue="mul"></apex:selectOption>
+                    <apex:selectOption itemLabel="Division" itemValue="div"></apex:selectOption>
+                    
+                </apex:selectRadio>
+                <apex:commandButton value="Result" action="{!calculate}"></apex:commandButton>
+                <apex:outputText label="Result" value="{!result}" ></apex:outputText>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>
