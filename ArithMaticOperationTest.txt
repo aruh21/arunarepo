@@ -1,0 +1,48 @@
+@isTest
+public class ArithMaticOperationTest {
+    @isTest
+    public static void mydata(){
+        Integer num1; 
+        Integer num2 ;
+        Integer result; 
+        String choice = 'sum';
+        
+        //creating instance of the class so that choice can be passes through
+        ArithMaticOperation am = new ArithMaticOperation();
+        am.choice = 'sum';
+        am.num1 = 10;
+        am.num2 = 20;
+        am.calculate();
+        //system asserts is used to check wheather the operation performed and the acual result is matching or not
+        System.assertEquals(am.num1 + am.num2, am.result,'addition Didn\'t work logic ');      
+        
+        ArithMaticOperation am1 = new ArithMaticOperation();
+        am1.choice = 'sub';
+        am1.num1 = 10;
+        am1.num2 = 20;
+        am1.calculate();
+        //system asserts is used to check wheather the operation performed and the acual result is matching or not
+        System.assertEquals(am1.num1 - am1.num2, am1.result,'subtration Didn\'t work logic ');        
+        ArithMaticOperation am2 = new ArithMaticOperation();
+        am2.choice = 'mul';
+        am2.num1 = 10;
+        am2.num2 = 20;
+        am2.calculate();
+        //system asserts is used to check wheather the operation performed and the acual result is matching or not
+        System.assertEquals(am2.num1 * am2.num2, am2.result,' multiplication Didn\'t work logic ');       
+        ArithMaticOperation am3 = new ArithMaticOperation();
+        am3.choice = 'div';
+        am3.num1 = 10;
+        am3.num2 = 20;
+        am3.calculate();
+        //system asserts is used to check wheather the operation performed and the acual result is matching or not
+        System.assertEquals(am3.num1 / am3.num2, am3.result,'division Didn\'t work logic ');       
+        ArithMaticOperation am4 = new ArithMaticOperation();
+        am4.choice = '';
+        am4.num1 = 10;
+        am4.num2  = 20;
+        am4.calculate();
+        //system asserts is used to check wheather the operation performed and the acual result is matching or not
+        System.assertEquals('', am4.choice,'no choice option Didn\'t work logic ');  
+    }
+}
